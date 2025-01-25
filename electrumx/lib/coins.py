@@ -367,7 +367,7 @@ class FractalBitcoinMixin(object):
     GENESIS_HASH = ('000000000019d6689c085ae165831e93'
                     '4ff763ae46a2a6c172b3f1b60a8ce26f')
     REORG_LIMIT = 200
-    DESERIALIZER = DeserializerSegWit
+    DESERIALIZER = lib_tx.DeserializerSegWit
 
     TX_PER_BLOCK = 2
     TX_COUNT = 50000
