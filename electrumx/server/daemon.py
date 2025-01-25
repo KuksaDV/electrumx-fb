@@ -178,7 +178,7 @@ class Daemon:
                 log_error('starting up checking blocks')
                 on_good_message = 'running normally'
             except DaemonParseError as e:
-                log_error(f"received RPC_PARSE_ERROR ({e=!r}). request was: {data=!r}")
+                log_error(f"received RPC_PARSE_ERROR ({e}). request was: {data}")
                 on_good_message = 'running normally'
 
             await asyncio.sleep(retry)
