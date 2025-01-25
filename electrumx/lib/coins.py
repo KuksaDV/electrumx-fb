@@ -357,6 +357,38 @@ class BitcoinMixin:
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
     RPC_PORT = 8332
 
+class FractalBitcoinMixin(object):
+    SHORTNAME = "FB"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    P2PKH_VERBYTE = bytes.fromhex("00")
+    P2SH_VERBYTES = [bytes.fromhex("05")]
+    WIF_BYTE = bytes.fromhex("80")
+    GENESIS_HASH = ('000000000019d6689c085ae165831e93'
+                    '4ff763ae46a2a6c172b3f1b60a8ce26f')
+    REORG_LIMIT = 200
+    DESERIALIZER = DeserializerSegWit
+
+    TX_PER_BLOCK = 2
+    TX_COUNT = 50000
+    TX_COUNT_HEIGHT = 400000
+
+
+class FractalBitcoin(FractalBitcoinMixin, Coin):
+    NAME = "FractalBitcoin"
+    NET = "mainnet"
+    RPC_PORT = 8332
+    PEERS = [
+        'node1.fractalbitcoin.org s t',
+        'node2.fractalbitcoin.org s t',
+    ]
+
+
+class FractalBitcoinTestnet(FractalBitcoinMixin, Coin):
+    NAME = "FractalBitcoinTestnet"
+    NET = "testnet"
+    RPC_PORT = 18332
+
 
 class NameMixin:
     DATA_PUSH_MULTIPLE = -2
